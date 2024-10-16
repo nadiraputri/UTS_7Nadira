@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string(column: 'nik');
             $table->string(column: 'nama');
-            $table->string(column: 'departemen');
             $table->string(column: 'jabatan');
             $table->text(column: 'deskripsi')->nullable();
             $table->timestamps();

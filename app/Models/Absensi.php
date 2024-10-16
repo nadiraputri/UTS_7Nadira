@@ -16,8 +16,8 @@ class Absensi extends Model
     protected $fillable = [
         'nik',
         'tanggal',
-        'jam masuk',
-        'jam keluar',
+        'masuk',
+        'keluar',
         'keterangan',
     ];
     protected function absensi():Attribute

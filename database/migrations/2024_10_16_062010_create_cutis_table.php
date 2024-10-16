@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jadwal__cutis', function (Blueprint $table) {
+        Schema::create('cutis', function (Blueprint $table) {
             $table->id();
             $table->integer(column: 'nik');
-            $table->date(column: 'tanggal mulai');
-            $table->date(column: 'tanggal selesai');
-            $table->string(column: 'keterangan');
+            $table->Time(column: 'mulai');
+            $table->Time(column: 'selesai');
+            $table->string(column: 'jenis');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jadwal__cutis');
+        Schema::dropIfExists('cutis');
     }
 };

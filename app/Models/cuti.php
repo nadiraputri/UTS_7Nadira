@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JadwalCuti extends Model
+class cuti extends Model
 {
     use HasFactory;
-    /**
+        /**
      * fillable
      * 
      * @var array
     */
     protected $fillable = [
         'nik',
-        'tanggal mulai',
-        'tanggal selesai',
-        'keterangan',
+        'mulai',
+        'selesai',
+        'jenis',
     ];
-    protected function JadwalCuti():Attribute
+    protected function nik():Attribute
     {
         return Attribute::make(
-            get:fn($JadwalCuti)=>('/storage/Jadwal_Cuti/' .$JadwalCuti),
+            get:fn($nik)=>('/storage/cuti/' .$nik),
         );
     }
 }

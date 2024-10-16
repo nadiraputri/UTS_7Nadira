@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer(column: 'nik');
             $table->date(column: 'tanggal');
-            $table->Time(column: 'jam masuk');
-            $table->Time(column: 'jam keluar');
+            $table->Time(column: 'masuk');
+            $table->Time(column: 'keluar');
             $table->string(column: 'keterangan');
             $table->timestamps();
         });
