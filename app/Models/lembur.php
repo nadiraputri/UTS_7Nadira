@@ -14,7 +14,7 @@ class lembur extends Model
      * @var array
     */
     protected $fillable = [
-        'nik',
+        'karyawan_id',
         'tanggal',
         'mulai',
         'selesai',

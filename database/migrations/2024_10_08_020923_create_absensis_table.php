@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
-            $table->integer(column: 'nik');
+            $table->foreignId('karyawan_id')->contained('karyawans');
             $table->date(column: 'tanggal');
             $table->Time(column: 'masuk');
             $table->Time(column: 'keluar');

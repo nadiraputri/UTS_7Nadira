@@ -14,7 +14,7 @@ class Absensi extends Model
      * @var array
     */
     protected $fillable = [
-        'nik',
+        'karyawan_id',
         'tanggal',
         'masuk',
         'keluar',

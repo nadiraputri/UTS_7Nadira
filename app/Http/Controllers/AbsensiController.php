@@ -19,7 +19,7 @@ class AbsensiController extends Controller
     public function create(request $request)
     {
         $data = new Absensi();
-        $data->nik = $request->input('nik');
+        $data->karyawan_id = $request->input('karyawan_id');
         $data->tanggal = $request->input('tanggal');
         $data->masuk = $request->input('masuk');
         $data->keluar = $request->input('keluar');

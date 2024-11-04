@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('proyeks', function (Blueprint $table) {
             $table->id();
-            $table->integer(column: 'nik');
-            $table->string(column: 'petugas');
             $table->string(column: 'proyek');
             $table->string(column: 'lokasi');
+            $table->Date(column: 'start'); 
             $table->Date(column: 'deadline');
             $table->timestamps();
         });

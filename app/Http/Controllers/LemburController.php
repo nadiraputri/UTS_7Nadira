@@ -19,7 +19,7 @@ class LemburController extends Controller
     public function create(request $request)
     {
         $data = new lembur();
-        $data->nik = $request->input('nik');
+        $data->karyawan_id = $request->input('karyawan_id');
         $data->tanggal = $request->input('tanggal');
         $data->mulai = $request->input('mulai');
         $data->selesai = $request->input('selesai');

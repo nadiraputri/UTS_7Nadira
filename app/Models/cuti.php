@@ -14,7 +14,7 @@ class cuti extends Model
      * @var array
     */
     protected $fillable = [
-        'nik',
+        'karyawan_id',
         'mulai',
         'selesai',
         'jenis',

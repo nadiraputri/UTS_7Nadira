@@ -18,6 +18,7 @@ class Karyawan extends Model
         'nama',
         'departemen',
         'jabatan',
+        'alamat',
         'deskripsi',
     ];
     protected function nik():Attribute

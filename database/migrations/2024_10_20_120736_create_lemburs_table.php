@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lemburs', function (Blueprint $table) {
             $table->id();
-            $table->integer(column: 'nik');
+            $table->foreignId('karyawan_id')->contained('karyawans');
             $table->Date(column: 'tanggal');
             $table->Time(column: 'mulai');
             $table->Time(column: 'selesai');

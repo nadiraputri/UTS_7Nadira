@@ -40,10 +40,9 @@ class ProyekController extends Controller
     public function update(request $request, $id)
     {
         $data = proyek::find($id);
-        $data->nik = $request->input('nik');
-        $data->petugas = $request->input('petugas');
         $data->proyek = $request->input('proyek');
         $data->lokasi = $request->input('lokasi');
+        $data->start = $request->input('start');
         $data->deadline = $request->input('deadline');
 
         $data->save();

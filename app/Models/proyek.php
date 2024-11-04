@@ -14,10 +14,9 @@ class proyek extends Model
      * @var array
     */
     protected $fillable = [
-        'nik',
-        'petugas',
         'proyek',
         'lokasi',
+        'start',
         'deadline',
     ];
     protected function nik():Attribute

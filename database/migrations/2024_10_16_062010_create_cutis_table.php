@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cutis', function (Blueprint $table) {
             $table->id();
-            $table->integer(column: 'nik');
+            $table->foreignId('karyawan_id')->contained('karyawans');
             $table->Time(column: 'mulai');
             $table->Time(column: 'selesai');
             $table->string(column: 'jenis');

@@ -19,7 +19,7 @@ class cutiController extends Controller
     public function create(request $request)
     {
         $data = new cuti();
-        $data->nik = $request->input('nik');
+        $data->karyawan_id = $request->input('karyawan_id');
         $data->mulai = $request->input('mulai');
         $data->selesai = $request->input('selesai');
         $data->jenis = $request->input('jenis');
