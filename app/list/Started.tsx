@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
-const LoginPage = () => {
+const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    if (email === '' || password === '') {
-      Alert.alert('Error', 'Please enter both email and password');
-    } else {
-      // Handle login logic here
-      Alert.alert('Success', 'Login Successful');
-    }
+    // Di sini Anda akan melakukan logic untuk autentikasi
+    console.log('Email:', email);
+    console.log('Password:', password);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
       
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-      />
+      <View style={styles.table}>
+        <View style={styles.row}>
+          <Text style={styles.label}>Email:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+          />
+        </View>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+        <View style={styles.row}>
+          <Text style={styles.label}>Password:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+        </View>
+      </View>
 
       <Button title="Login" onPress={handleLogin} />
-
-      <Text style={styles.registerText}>
-        Don't have an account? <Text style={styles.registerLink}>Register</Text>
-      </Text>
     </View>
   );
 };
@@ -48,32 +48,33 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#219ebc',
-    padding: 20,
+    padding: 16,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
     marginBottom: 20,
   },
-  input: {
+  table: {
     width: '100%',
-    padding: 12,
-    marginBottom: 10,
+    marginBottom: 20,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  label: {
+    fontSize: 16,
+    width: '30%',
+  },
+  input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#ccc',
+    padding: 8,
     borderRadius: 5,
-    backgroundColor: '#fff',
-  },
-  registerText: {
-    marginTop: 10,
-    color: '#fff',
-  },
-  registerLink: {
-    color: '#fff',
-    textDecorationLine: 'underline',
+    width: '65%',
   },
 });
 
-export default LoginPage;
+export default LoginScreen;
