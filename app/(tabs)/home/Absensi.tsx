@@ -1,94 +1,96 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button, FlatList } from 'react-native';
 
-const AbsensiTableInput = () => {
-  const [employeeId, setEmployeeId] = useState('');
-  const [date, setDate] = useState('');
-  const [entryTime, setEntryTime] = useState('');
-  const [exitTime, setExitTime] = useState('');
-  const [remarks, setRemarks] = useState('');
-  const [attendanceData, setAttendanceData] = useState<any[]>([]);
+interface Absensi {
+  id: string;
+  tanggal: string;
+  waktuMasuk: string;
+  waktuKeluar: string;
+  keterangan: string;
+}
 
-  const addAttendance = () => {
-    const newAttendance = {
-      id: Math.random().toString(), // generate unique id
-      employeeId,
-      date,
-      entryTime,
-      exitTime,
-      remarks,
-    };
+const AbsensiScreen: React.FC = () => {
+  const [absensiList, setAbsensiList] = useState<Absensi[]>([]);
+  const [tanggal, setTanggal] = useState('');
+  const [waktuMasuk, setWaktuMasuk] = useState('');
+  const [waktuKeluar, setWaktuKeluar] = useState('');
+  const [keterangan, setKeterangan] = useState('');
 
-    setAttendanceData([...attendanceData, newAttendance]);
-
-    // Clear input fields
-    setEmployeeId('');
-    setDate('');
-    setEntryTime('');
-    setExitTime('');
-    setRemarks('');
+  const handleAddAbsensi = () => {
+    if (tanggal && waktuMasuk && waktuKeluar && keterangan) {
+      const newAbsensi: Absensi = {
+        id: Math.random().toString(),
+        tanggal,
+        waktuMasuk,
+        waktuKeluar,
+        keterangan,
+      };
+      setAbsensiList([...absensiList, newAbsensi]);
+      setTanggal('');
+      setWaktuMasuk('');
+      setWaktuKeluar('');
+      setKeterangan('');
+    } else {
+      alert('Mohon isi semua field!');
+    }
   };
-
-  const renderItem = ({ item }: any) => (
-    <View style={styles.row}>
-      <Text style={styles.cell}>{item.employeeId}</Text>
-      <Text style={styles.cell}>{item.date}</Text>
-      <Text style={styles.cell}>{item.entryTime}</Text>
-      <Text style={styles.cell}>{item.exitTime}</Text>
-      <Text style={styles.cell}>{item.remarks}</Text>
-    </View>
-  );
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Input Absensi Karyawan</Text>
-      
-      <TextInput
-        style={styles.input}
-        placeholder="ID Karyawan"
-        value={employeeId}
-        onChangeText={setEmployeeId}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Tanggal (YYYY-MM-DD)"
-        value={date}
-        onChangeText={setDate}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Waktu Masuk (HH:MM)"
-        value={entryTime}
-        onChangeText={setEntryTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Waktu Keluar (HH:MM)"
-        value={exitTime}
-        onChangeText={setExitTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Keterangan"
-        value={remarks}
-        onChangeText={setRemarks}
-      />
-      
-      <Button title="Tambah Absensi" onPress={addAttendance} />
+      <Text style={styles.title}>Halaman Absensi</Text>
 
-      <Text style={styles.subtitle}>Daftar Absensi</Text>
-      <View style={styles.tableHeader}>
-        <Text style={styles.headerCell}>ID Karyawan</Text>
-        <Text style={styles.headerCell}>Tanggal</Text>
-        <Text style={styles.headerCell}>Masuk</Text>
-        <Text style={styles.headerCell}>Keluar</Text>
-        <Text style={styles.headerCell}>Keterangan</Text>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Tanggal"
+          value={tanggal}
+          onChangeText={setTanggal}
+          keyboardType="default"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Waktu Masuk"
+          value={waktuMasuk}
+          onChangeText={setWaktuMasuk}
+          keyboardType="default"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Waktu Keluar"
+          value={waktuKeluar}
+          onChangeText={setWaktuKeluar}
+          keyboardType="default"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Keterangan"
+          value={keterangan}
+          onChangeText={setKeterangan}
+        />
+        <Button title="Tambah Absensi" onPress={handleAddAbsensi} />
       </View>
 
       <FlatList
-        data={attendanceData}
-        renderItem={renderItem}
+        data={absensiList}
         keyExtractor={(item) => item.id}
+        style={styles.table}
+        ListHeaderComponent={() => (
+          <View style={styles.tableHeader}>
+            <Text style={styles.tableHeaderText}>Tanggal</Text>
+            <Text style={styles.tableHeaderText}>Waktu Masuk</Text>
+            <Text style={styles.tableHeaderText}>Waktu Keluar</Text>
+            <Text style={styles.tableHeaderText}>Keterangan</Text>
+          </View>
+        )}
+        renderItem={({ item }) => (
+          <View style={styles.tableRow}>
+            <Text style={styles.tableCell}>{item.tanggal}</Text>
+            <Text style={styles.tableCell}>{item.waktuMasuk}</Text>
+            <Text style={styles.tableCell}>{item.waktuKeluar}</Text>
+            <Text style={styles.tableCell}>{item.keterangan}</Text>
+          </View>
+        )}
       />
     </View>
   );
@@ -98,52 +100,50 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#87CEEB', 
+    backgroundColor: '#f8f9fa',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
-    color: '#000000', 
+    textAlign: 'center',
   },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginVertical: 16,
-    color: '#000000',
+  inputContainer: {
+    marginBottom: 20,
   },
   input: {
-    height: 40,
-    borderColor: '#ccc',
     borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-    backgroundColor: '#fff', 
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 8,
+    marginBottom: 10,
+  },
+  table: {
+    marginTop: 10,
   },
   tableHeader: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    paddingBottom: 8,
-    marginBottom: 8,
+    backgroundColor: '#007bff',
+    padding: 10,
+    borderRadius: 5,
   },
-  headerCell: {
+  tableHeaderText: {
     flex: 1,
+    color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#fff',
   },
-  row: {
+  tableRow: {
     flexDirection: 'row',
-    paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+    paddingVertical: 8,
   },
-  cell: {
+  tableCell: {
     flex: 1,
     textAlign: 'center',
-    color: '#fff',
+    fontSize: 14,
   },
 });
 
-export default AbsensiTableInput;
+export default AbsensiScreen;

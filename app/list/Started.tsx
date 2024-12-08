@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen: React.FC = () => {
+const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Di sini Anda akan melakukan logic untuk autentikasi
+
     console.log('Email:', email);
     console.log('Password:', password);
+
+    
+    navigation.navigate('Menu');
   };
 
   return (
