@@ -78,7 +78,7 @@ const TabelLembur: React.FC = () => {
           onChangeText={(text) => handleInputChange('jumlah', text)}
         />
       </View>
-      <Button title="Tambah Data" onPress={handleAddData} />
+      <Button title="Tambah Data" onPress={handleAddData} color="#F0BB78" />
 
       <View style={styles.header}>
         <Text style={styles.headerCell}>ID Karyawan</Text>
@@ -87,11 +87,15 @@ const TabelLembur: React.FC = () => {
         <Text style={styles.headerCell}>Selesai</Text>
         <Text style={styles.headerCell}>Jumlah</Text>
       </View>
-      <FlatList
-        data={dataLembur}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.idKaryawan}
-      />
+
+
+      <View style={styles.tableContainer}>
+        <FlatList
+          data={dataLembur}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.idKaryawan}
+        />
+      </View>
     </View>
   );
 };
@@ -100,42 +104,48 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#ADD8E6', 
+    backgroundColor: '#FFE6A5',
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 16,
     textAlign: 'center',
-  },
-  header: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    paddingBottom: 8,
-    marginBottom: 8,
-    marginTop: 16,
-  },
-  headerCell: {
-    flex: 1,
-    fontWeight: 'bold',
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  row: {
-    flexDirection: 'row',
-    paddingVertical: 8,
-  },
-  cell: {
-    flex: 1,
-    fontSize: 14,
-    textAlign: 'center',
+    color: '#000',
   },
   subtitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 20,
     textAlign: 'center',
+    color: '#000',
+  },
+  header: {
+    flexDirection: 'row',
+    backgroundColor: '#FADA7A',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+    marginTop: 20, 
+  },
+  headerCell: {
+    flex: 1,
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  row: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingVertical: 8,
+  },
+  cell: {
+    flex: 1,
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#000',
   },
   inputRow: {
     flexDirection: 'row',
@@ -152,6 +162,10 @@ const styles = StyleSheet.create({
     flexBasis: '48%',
     marginBottom: 10,
     fontSize: 14,
+    color: '#000',
+  },
+  tableContainer: {
+    marginTop: 20, 
   },
 });
 

@@ -19,7 +19,7 @@ const KaryawanScreen: React.FC = () => {
   const handleAddKaryawan = () => {
     if (nama && jabatan && alamat && keterangan) {
       const newKaryawan: Karyawan = {
-        id: Math.random().toString(), // Unique ID
+        id: Math.random().toString(), 
         nama,
         jabatan,
         alamat,
@@ -39,7 +39,7 @@ const KaryawanScreen: React.FC = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Halaman Karyawan</Text>
 
-      {/* Input Fields */}
+
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -65,10 +65,10 @@ const KaryawanScreen: React.FC = () => {
           value={keterangan}
           onChangeText={setKeterangan}
         />
-        <Button title="Tambah Karyawan" onPress={handleAddKaryawan} />
+        <Button title="Tambah Karyawan" onPress={handleAddKaryawan} color="#F0BB78" />
       </View>
 
-      {/* Tabel Data Karyawan */}
+
       <FlatList
         data={karyawanList}
         keyExtractor={(item) => item.id}
@@ -98,13 +98,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#FFE6A5',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign: 'center',
+    color: '#000', 
   },
   inputContainer: {
     marginBottom: 20,
@@ -115,19 +116,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 8,
     marginBottom: 10,
+    color: '#000',
   },
   table: {
     marginTop: 10,
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#007bff',
+    backgroundColor: '#FADA7A',
     padding: 10,
     borderRadius: 5,
   },
   tableHeaderText: {
     flex: 1,
-    color: '#fff',
+    color: '#000', 
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -141,6 +143,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 14,
+    color: '#000', 
   },
 });
 

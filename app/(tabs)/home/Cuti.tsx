@@ -17,7 +17,7 @@ const CutiScreen: React.FC = () => {
   const handleAddCuti = () => {
     if (mulai && selesai && jenisCuti) {
       const newCuti: Cuti = {
-        id: Math.random().toString(), 
+        id: Math.random().toString(),
         mulai,
         selesai,
         jenisCuti,
@@ -56,7 +56,7 @@ const CutiScreen: React.FC = () => {
           onChangeText={setSelesai}
           keyboardType="default"
         />
-        <Button title="Tambah Cuti" onPress={handleAddCuti} />
+        <Button title="Tambah Cuti" onPress={handleAddCuti} color="#F0BB78" />
       </View>
 
       <FlatList
@@ -86,13 +86,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#FFE6A5', 
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign: 'center',
+    color: '#000', 
   },
   inputContainer: {
     marginBottom: 20,
@@ -103,19 +104,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 8,
     marginBottom: 10,
+    color: '#000', 
   },
   table: {
     marginTop: 10,
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#007bff',
+    backgroundColor: '#FADA7A', 
     padding: 10,
     borderRadius: 5,
   },
   tableHeaderText: {
     flex: 1,
-    color: '#fff',
+    color: '#000', 
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 14,
+    color: '#000', 
   },
 });
 

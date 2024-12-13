@@ -9,7 +9,7 @@ type OvertimeData = {
   deadline: string;
 };
 
-const OvertimeTable: React.FC = () => {
+const Proyek: React.FC = () => {
   const [overtimeData, setOvertimeData] = useState<OvertimeData[]>([]);
   const [project, setProject] = useState('');
   const [location, setLocation] = useState('');
@@ -72,7 +72,7 @@ const OvertimeTable: React.FC = () => {
         value={deadline}
         onChangeText={setDeadline}
       />
-      <Button title="Tambah Lembur" onPress={addOvertimeData} />
+      <Button title="Tambah Lembur" onPress={addOvertimeData} color="#F0BB78" />
 
       <View style={styles.table}>
         <View style={styles.row}>
@@ -95,13 +95,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#ADD8E6', 
+    backgroundColor: '#FFE6A5', 
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
     color: '#000000', 
+    textAlign: 'center',
   },
   input: {
     borderWidth: 1,
@@ -125,14 +126,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     fontWeight: 'bold',
-    backgroundColor: '#f0f0f0',
-    textAlign: 'center',
+    backgroundColor: '#FADA7A', 
   },
   cell: {
     flex: 1,
     padding: 10,
     textAlign: 'center',
+    color: '#000',
   },
 });
 
-export default OvertimeTable;
+export default Proyek;

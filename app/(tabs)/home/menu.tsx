@@ -1,43 +1,61 @@
+// app/(tabs)/home/MenuScreen.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // Menggunakan ikon dari Ionicons
 
-const MenuScreen: React.FC = ({ navigation }: { navigation: any }) => {
+const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+
+  const handleNavigation = (screen: string) => {
+    navigation.navigate(screen);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Menu</Text>
+
       <View style={styles.menuContainer}>
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('Karyawan')}
+        {/* Kotak menu Karyawan */}
+        <TouchableOpacity 
+          style={styles.menuBox} 
+          onPress={() => handleNavigation('Karyawan')}
         >
+          <Ionicons name="person" size={32} color="white" />
           <Text style={styles.menuText}>Karyawan</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('Absensi')}
+        {/* Kotak menu Absensi */}
+        <TouchableOpacity 
+          style={styles.menuBox} 
+          onPress={() => handleNavigation('Absensi')}
         >
+          <Ionicons name="clipboard" size={32} color="white" />
           <Text style={styles.menuText}>Absensi</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('Lembur')}
+        {/* Kotak menu Lembur */}
+        <TouchableOpacity 
+          style={styles.menuBox} 
+          onPress={() => handleNavigation('Lembur')}
         >
+          <Ionicons name="alarm" size={32} color="white" />
           <Text style={styles.menuText}>Lembur</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('Cuti')}
+        {/* Kotak menu Cuti */}
+        <TouchableOpacity 
+          style={styles.menuBox} 
+          onPress={() => handleNavigation('Cuti')}
         >
+          <Ionicons name="calendar" size={32} color="white" />
           <Text style={styles.menuText}>Cuti</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.menuButton}
-          onPress={() => navigation.navigate('Proyek')}
+        {/* Kotak menu Proyek */}
+        <TouchableOpacity 
+          style={styles.menuBox} 
+          onPress={() => handleNavigation('Proyek')}
         >
+          <Ionicons name="briefcase" size={32} color="white" />
           <Text style={styles.menuText}>Proyek</Text>
         </TouchableOpacity>
       </View>
@@ -53,28 +71,32 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 24,
     marginBottom: 20,
   },
   menuContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     width: '100%',
-    alignItems: 'center',
   },
-  menuButton: {
-    backgroundColor: '#007BFF', // Ubah warna menjadi biru
-    padding: 15,
-    marginVertical: 10,
-    width: '80%',
+  menuBox: {
+    width: '40%',
+    height: 120,
+    backgroundColor: '#F0BB78', // Mengganti warna latar belakang dengan #F0BB78
+    justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
+    margin: 10,
+    borderRadius: 10,
+    elevation: 5, // Memberikan bayangan di kotak
+    borderColor: '#F0A35A', // Menggunakan warna border sedikit lebih gelap
+    borderWidth: 2, // Garis tepi kotak
   },
   menuText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
+    marginTop: 10,
+    color: 'black', // Teks hitam agar kontras dengan latar belakang krem
+    fontSize: 16,
   },
 });
 
 export default MenuScreen;
-

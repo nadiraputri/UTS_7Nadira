@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -11,12 +10,16 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     console.log('Email:', email);
     console.log('Password:', password);
 
-    
-    navigation.navigate('Menu');
+
+    navigation.navigate('menu');
   };
 
   return (
     <View style={styles.container}>
+      <Image 
+        source={require('../../assets/images/orang.png')} 
+        style={styles.logo} 
+      />
       <Text style={styles.title}>Login</Text>
       
       <View style={styles.table}>
@@ -54,6 +57,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
   },
+  logo: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
   title: {
     fontSize: 24,
     marginBottom: 20,
@@ -82,3 +90,4 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
+
