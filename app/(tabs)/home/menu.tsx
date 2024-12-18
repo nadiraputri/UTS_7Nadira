@@ -1,7 +1,6 @@
-// app/(tabs)/home/MenuScreen.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Menggunakan ikon dari Ionicons
+import { Ionicons } from '@expo/vector-icons'; 
 
 const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
@@ -14,7 +13,6 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       <Text style={styles.title}>Menu</Text>
 
       <View style={styles.menuContainer}>
-        {/* Kotak menu Karyawan */}
         <TouchableOpacity 
           style={styles.menuBox} 
           onPress={() => handleNavigation('Karyawan')}
@@ -23,7 +21,7 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           <Text style={styles.menuText}>Karyawan</Text>
         </TouchableOpacity>
 
-        {/* Kotak menu Absensi */}
+        
         <TouchableOpacity 
           style={styles.menuBox} 
           onPress={() => handleNavigation('Absensi')}
@@ -32,7 +30,7 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           <Text style={styles.menuText}>Absensi</Text>
         </TouchableOpacity>
 
-        {/* Kotak menu Lembur */}
+       
         <TouchableOpacity 
           style={styles.menuBox} 
           onPress={() => handleNavigation('Lembur')}
@@ -41,7 +39,7 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           <Text style={styles.menuText}>Lembur</Text>
         </TouchableOpacity>
 
-        {/* Kotak menu Cuti */}
+        
         <TouchableOpacity 
           style={styles.menuBox} 
           onPress={() => handleNavigation('Cuti')}
@@ -50,7 +48,7 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           <Text style={styles.menuText}>Cuti</Text>
         </TouchableOpacity>
 
-        {/* Kotak menu Proyek */}
+        
         <TouchableOpacity 
           style={styles.menuBox} 
           onPress={() => handleNavigation('Proyek')}
@@ -83,18 +81,18 @@ const styles = StyleSheet.create({
   menuBox: {
     width: '40%',
     height: 120,
-    backgroundColor: '#F0BB78', // Mengganti warna latar belakang dengan #F0BB78
+    backgroundColor: '#F0BB78', 
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
     borderRadius: 10,
-    elevation: 5, // Memberikan bayangan di kotak
-    borderColor: '#F0A35A', // Menggunakan warna border sedikit lebih gelap
-    borderWidth: 2, // Garis tepi kotak
+    elevation: 5, 
+    borderColor: '#F0A35A', 
+    borderWidth: 2, 
   },
   menuText: {
     marginTop: 10,
-    color: 'black', // Teks hitam agar kontras dengan latar belakang krem
+    color: 'black', 
     fontSize: 16,
   },
 });
