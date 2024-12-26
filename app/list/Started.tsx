@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Link } from 'expo-router';
 
 const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-
-    navigation.navigate('menu');
+  const handleNavigateToMenu = () => {
+    console.log('Navigating to Menu');
+    navigation.navigate('menu'); 
   };
 
   return (
     <View style={styles.container}>
-      <Image 
-        source={require('../../assets/images/orang.png')} 
-        style={styles.logo} 
+      <Image
+        source={require('../../assets/images/orang.png')}
+        style={styles.logo}
       />
-      <Text style={styles.title}>Login</Text>
-      
+
       <View style={styles.table}>
         <View style={styles.row}>
           <Text style={styles.label}>Email:</Text>
@@ -45,7 +41,7 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         </View>
       </View>
 
-      <Button title="Login" onPress={handleLogin} />
+      <Link href="/list/menu" style={styles.link}>Login</Link>
     </View>
   );
 };
@@ -87,7 +83,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: '65%',
   },
+  link: {
+    fontSize: 18,
+    color: '#FFFFFF',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#3A6BA2',
+    borderRadius: 8,
+  }
+  
 });
 
 export default LoginScreen;
-
